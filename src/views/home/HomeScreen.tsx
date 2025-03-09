@@ -64,7 +64,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
           </Text>
 
           <View style={styles.weatherforcastTextContainer}>
-            <Text style={styles.forecastTitle}>Weather Forecast</Text>
+            <Text style={styles.forecastTitle}>{CONSTANTS.WEATHERFORECAST}</Text>
             <TextInput
               ref={textInputRef}
               placeholder="Day"

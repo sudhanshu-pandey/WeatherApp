@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         elevation: 3,
         shadowColor: '#000',
         shadowOpacity: 0.1,
-        shadowRadius: 5,
+        shadowRadius: 2,
         height: 150,
         justifyContent: 'center',
         gap: 5

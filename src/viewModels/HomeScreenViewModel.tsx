@@ -39,8 +39,8 @@ const HomeScreenViewModel = () => {
       if (debounceTimeout.current) {
         clearTimeout(debounceTimeout.current);
       }
-      if (dayCount > 12) {
-        Alert.alert(CONSTANTS.INFO, CONSTANTS.MAXIMUMFORECASTDAy);
+      if (dayCount > 12 || dayCount <= 0) {
+        Alert.alert(CONSTANTS.INFO, CONSTANTS.MAXIMMINUMFORECASTDAY);
         setForecastDays(3);
         textInputRef.current?.blur();
         dispatch(fetchWeather({location: data.location.name, day: 3}));

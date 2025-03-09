@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
       color: '#007AFF',
     },
     forecastList: {
-      paddingHorizontal: 10,
+      paddingRight: 10,
     },
   });
 
