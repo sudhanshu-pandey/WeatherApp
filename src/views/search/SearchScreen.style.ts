@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     },
     itemText: {
       fontSize: 16,
-      fontWeight: 'bold',
+      fontWeight: '500',
       color: '#333',
     },
     flatlistContainer: {

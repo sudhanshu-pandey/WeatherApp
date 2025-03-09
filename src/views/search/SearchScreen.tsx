@@ -8,16 +8,16 @@ import {
 } from 'react-native';
 import React from 'react';
 import SearchBar from '../../components/SearchBar';
-import { CONSTANTS } from '../../shared/constants';
+import {CONSTANTS} from '../../shared/constants';
 import styles from './SearchScreen.style';
 
 interface SearchScreenProps {
-  searchText: string,
-  onChangeText: (text: string) => void,
-  searchResults: any[],
-  loading: boolean,
-  error: string | null,
-  SearchItemSelect: (text: any) => void
+  searchText: string;
+  onChangeText: (text: string) => void;
+  searchResults: any[];
+  loading: boolean;
+  error: string | null;
+  SearchItemSelect: (text: any) => void;
 }
 
 const SearchScreen: React.FC<SearchScreenProps> = ({
@@ -42,6 +42,7 @@ const SearchScreen: React.FC<SearchScreenProps> = ({
         onChange={onChangeText}
         value={searchText}
         autoFocus={true}
+        backIconVisible={true}
       />
       {loading && (
         <View style={styles.loaderContainer}>
@@ -57,12 +58,14 @@ const SearchScreen: React.FC<SearchScreenProps> = ({
         </View>
       )}
 
-      <FlatList
-        data={searchResults}
-        keyExtractor={item => item.id?.toString() || item.name}
-        renderItem={renderItem}
-        style={styles.flatlistContainer}
-      />
+      {!loading && (
+        <FlatList
+          data={searchResults}
+          keyExtractor={item => item.id?.toString() || item.name}
+          renderItem={renderItem}
+          style={styles.flatlistContainer}
+        />
+      )}
     </SafeAreaView>
   );
 };

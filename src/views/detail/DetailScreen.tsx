@@ -36,7 +36,13 @@ const WeatherDetailScreen: React.FC<WeatherDetailScreenProps> = ({
         <TouchableOpacity style={styles.arrowButton} onPress={BackButtonPress}>
             <Image source={Glyphs.Arrow} style={styles.backArrowIcon} />
         </TouchableOpacity>
-        <Text style={styles.date}>{date}</Text>
+        <Text style={styles.date}>
+        {new Intl.DateTimeFormat('en-US', {
+          weekday: 'short',
+          month: 'short',
+          day: '2-digit',
+        }).format(new Date(date))}
+        </Text>
         {hour.length > 0 && (
           <>
             <Image

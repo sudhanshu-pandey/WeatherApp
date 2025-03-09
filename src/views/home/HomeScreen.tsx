@@ -20,7 +20,7 @@ interface HomeScreenProps {
   TextChange: (text: string) => void;
   forecastDays: number;
   textInputRef: React.RefObject<TextInput | null>;
-  CardItemPress: (data: any) => void
+  CardItemPress: (data: any) => void;
 }
 
 const HomeScreen: React.FC<HomeScreenProps> = ({
@@ -31,7 +31,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
   TextChange,
   forecastDays,
   textInputRef,
-  CardItemPress
+  CardItemPress,
 }) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -44,19 +44,22 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
       {error ? (
         <Text style={styles.errorText}>{error}</Text>
       ) : !data ? (
-        <Text style={styles.selectCityText}>
-          {CONSTANTS.SELECTCITY}
-        </Text>
+        <Text style={styles.selectCityText}>{CONSTANTS.SELECTCITY}</Text>
       ) : (
         <>
+          <Text style={[styles.districtText, {color: '#32CD32'}]}>
+            {data.location.name}
+          </Text>
           <View style={styles.tempContainer}>
             <Image
               style={styles.icon}
               source={{uri: 'https:' + data.current.condition.icon}}
             />
-            <Text style={[styles.temperatureText, { color: '#ff6200' }]}>{data.current.temp_c}°C</Text>
+            <Text style={[styles.temperatureText, {color: '#ff6200'}]}>
+              {data.current.temp_c}°C
+            </Text>
           </View>
-          <Text style={[styles.conditionText, { color: '#4682B4' }]}>
+          <Text style={[styles.conditionText, {color: '#4682B4'}]}>
             {data.current.condition.text}
           </Text>
 
@@ -76,7 +79,9 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
           <FlatList
             data={data.forecast.forecastday}
             keyExtractor={item => item.date}
-            renderItem={({item}) => <CardItem data={item} CardItemPress={() => CardItemPress(item)}/>}
+            renderItem={({item}) => (
+              <CardItem data={item} CardItemPress={() => CardItemPress(item)} />
+            )}
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.forecastList}

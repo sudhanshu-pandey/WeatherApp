@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      marginTop: 30,
+      marginTop: 10,
     },
     textInput: {
       borderWidth: 0.5,
@@ -48,6 +48,12 @@ const styles = StyleSheet.create({
       fontSize: 18,
       color: '#555',
       marginTop: 5,
+    },
+    districtText: {
+      fontSize: 25,
+      fontWeight: 'bold',
+      marginTop: 30,
+      alignSelf:'center',
     },
     weatherforcastTextContainer: {
       flexDirection: 'row',
