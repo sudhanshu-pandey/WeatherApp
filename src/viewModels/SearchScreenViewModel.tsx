@@ -23,7 +23,7 @@ const SearchScreenViewModel = () => {
 
     debounceTimeout.current = setTimeout(() => {
       dispatch(fetchSearchCity(text));
-    }, 1000);
+    }, 500);
   };
 
   const SearchItemSelect = (text: string) => {
